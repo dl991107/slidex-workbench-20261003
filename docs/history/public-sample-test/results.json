@@ -1,0 +1,89 @@
+{
+  "library": "slidex 0.6.28",
+  "optional_yolo": false,
+  "browser_used": false,
+  "rows": [
+    {
+      "sample": 4,
+      "input_sha256": "1998344a6f91bdb274d1f53fbccc961f8937116c2f05613de18794c92997bd51",
+      "source": "https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_example/example4.png",
+      "reference_source": "https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_predict/predict4.png",
+      "reference_type": "author published model annotation, not measured website ground truth",
+      "reference_x": 238,
+      "horizontal_error_px": 2,
+      "within_3px_of_reference": true,
+      "measured_ms": 20.668,
+      "result": {
+        "success": true,
+        "gap_x": 236,
+        "distance_px": 236,
+        "confidence": 0.8,
+        "method": "contour",
+        "gap_box": [
+          236,
+          250,
+          347,
+          356
+        ],
+        "candidates": [
+          {
+            "method": "contour",
+            "gap_box": [
+              236,
+              250,
+              347,
+              356
+            ],
+            "gap_x": 236,
+            "confidence": 0.8
+          }
+        ],
+        "error_code": null,
+        "metadata": {
+          "elapsed_ms": 20.4
+        }
+      }
+    },
+    {
+      "sample": 8,
+      "input_sha256": "e46c7f9f9adb262ebcff1c6fd41cf4f90af4112b0b6efd1736fa37ee20a9e5d7",
+      "source": "https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_example/example8.png",
+      "reference_source": "https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_predict/predict8.png",
+      "reference_type": "author published model annotation, not measured website ground truth",
+      "reference_x": 103,
+      "horizontal_error_px": 200,
+      "within_3px_of_reference": false,
+      "measured_ms": 3.59,
+      "result": {
+        "success": true,
+        "gap_x": 303,
+        "distance_px": 303,
+        "confidence": 0.45,
+        "method": "column_profile",
+        "gap_box": [
+          303,
+          23,
+          305,
+          140
+        ],
+        "candidates": [
+          {
+            "method": "column_profile",
+            "gap_box": [
+              303,
+              23,
+              305,
+              140
+            ],
+            "gap_x": 303,
+            "confidence": 0.45
+          }
+        ],
+        "error_code": null,
+        "metadata": {
+          "elapsed_ms": 3.2
+        }
+      }
+    }
+  ]
+}

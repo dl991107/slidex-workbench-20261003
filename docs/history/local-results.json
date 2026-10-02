@@ -1,0 +1,26 @@
+[
+  {
+    "expected_x": 100,
+    "recognized_x": 98,
+    "method": "contour",
+    "left": 98,
+    "moves": 13,
+    "pass": true
+  },
+  {
+    "expected_x": 180,
+    "recognized_x": 178,
+    "method": "contour",
+    "left": 178,
+    "moves": 13,
+    "pass": true
+  },
+  {
+    "expected_x": 230,
+    "recognized_x": 228,
+    "method": "contour",
+    "left": 228,
+    "moves": 13,
+    "pass": true
+  }
+]

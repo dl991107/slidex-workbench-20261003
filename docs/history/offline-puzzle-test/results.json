@@ -1,0 +1,9550 @@
+{
+  "library": "slidex 0.6.28",
+  "input": "independent synthetic PNGs only",
+  "yolo_backend": false,
+  "tolerance": "3 base-image pixels, scaled with image",
+  "coordinate": {
+    "image_only": "visible gap left edge from separately resized ground-truth mask",
+    "with_piece": "piece patch left edge, including transparent margin"
+  },
+  "summary": {
+    "clean/image_only": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 0.616,
+      "p95_ms": 1.344
+    },
+    "clean/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 4.563,
+      "p95_ms": 10.632
+    },
+    "texture/image_only": {
+      "total": 30,
+      "correct": 22,
+      "reported_success_but_wrong": 8,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.297,
+      "p95_ms": 2.687
+    },
+    "texture/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.248,
+      "p95_ms": 11.917
+    },
+    "distractor/image_only": {
+      "total": 30,
+      "correct": 9,
+      "reported_success_but_wrong": 21,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.283,
+      "p95_ms": 2.516
+    },
+    "distractor/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.21,
+      "p95_ms": 11.691
+    },
+    "whole_scene/image_only": {
+      "total": 30,
+      "correct": 9,
+      "reported_success_but_wrong": 21,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.301,
+      "p95_ms": 2.602
+    },
+    "whole_scene/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.189,
+      "p95_ms": 11.811
+    }
+  },
+  "boundary_cases": [
+    {
+      "case": "missing",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "missing_background_image",
+      "metadata": {
+        "elapsed_ms": 0.0
+      },
+      "measured_ms": 0.014
+    },
+    {
+      "case": "empty_bytes",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "image_decode_failed",
+      "metadata": {
+        "elapsed_ms": 1.5
+      },
+      "measured_ms": 1.535
+    },
+    {
+      "case": "corrupt_bytes",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "image_decode_failed",
+      "metadata": {
+        "elapsed_ms": 0.0
+      },
+      "measured_ms": 0.008
+    },
+    {
+      "case": "blank",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "gap_not_found",
+      "metadata": {
+        "elapsed_ms": 1.9
+      },
+      "measured_ms": 1.9
+    },
+    {
+      "case": "line_without_gap",
+      "expected": "reject",
+      "correct": false,
+      "success": true,
+      "gap_x": 216,
+      "distance_px": 216,
+      "confidence": 0.45,
+      "method": "column_profile",
+      "gap_box": [
+        216,
+        28,
+        236,
+        171
+      ],
+      "candidates": [
+        {
+          "method": "column_profile",
+          "gap_box": [
+            216,
+            28,
+            236,
+            171
+          ],
+          "gap_x": 216,
+          "confidence": 0.45
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.7
+      },
+      "measured_ms": 0.749
+    }
+  ],
+  "cases": [
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 194,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 193,
+      "distance_px": 193,
+      "confidence": 0.6317,
+      "method": "contour",
+      "gap_box": [
+        193,
+        63,
+        233,
+        103
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            193,
+            63,
+            233,
+            103
+          ],
+          "gap_x": 193,
+          "confidence": 0.6317
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 12.3
+      },
+      "measured_ms": 12.282
+    },
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 191.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.7741,
+      "method": "template_edge",
+      "gap_box": [
+        191,
+        61,
+        235,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            191,
+            61,
+            235,
+            105
+          ],
+          "gap_x": 191,
+          "confidence": 0.7740734219551086
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.7
+      },
+      "measured_ms": 5.687
+    },
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 259,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 257,
+      "distance_px": 257,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        257,
+        84,
+        310,
+        136
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            257,
+            84,
+            310,
+            136
+          ],
+          "gap_x": 257,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.638
+    },
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 255.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 255,
+      "distance_px": 255,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        255,
+        81,
+        313,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            255,
+            81,
+            313,
+            139
+          ],
+          "gap_x": 255,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.9
+      },
+      "measured_ms": 4.946
+    },
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 388,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 387,
+      "distance_px": 387,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        387,
+        127,
+        464,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            387,
+            127,
+            464,
+            204
+          ],
+          "gap_x": 387,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.235
+    },
+    {
+      "kind": "clean",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 382.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 383,
+      "distance_px": 383,
+      "confidence": 0.7642,
+      "method": "template_edge",
+      "gap_box": [
+        383,
+        122,
+        470,
+        209
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            383,
+            122,
+            470,
+            209
+          ],
+          "gap_x": 383,
+          "confidence": 0.764234185218811
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.2
+      },
+      "measured_ms": 11.19
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 166,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 164,
+      "distance_px": 164,
+      "confidence": 0.6317,
+      "method": "contour",
+      "gap_box": [
+        164,
+        58,
+        204,
+        98
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            164,
+            58,
+            204,
+            98
+          ],
+          "gap_x": 164,
+          "confidence": 0.6317
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.392
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 162.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 163,
+      "distance_px": 163,
+      "confidence": 0.7393,
+      "method": "template_edge",
+      "gap_box": [
+        163,
+        56,
+        207,
+        100
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            163,
+            56,
+            207,
+            100
+          ],
+          "gap_x": 163,
+          "confidence": 0.7393145561218262
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.9
+      },
+      "measured_ms": 2.902
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 221,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 219,
+      "distance_px": 219,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        219,
+        78,
+        272,
+        130
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            219,
+            78,
+            272,
+            130
+          ],
+          "gap_x": 219,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.596
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 217.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 217,
+      "distance_px": 217,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        217,
+        75,
+        275,
+        133
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            217,
+            75,
+            275,
+            133
+          ],
+          "gap_x": 217,
+          "confidence": 1.0
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.5
+      },
+      "measured_ms": 4.494
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 331,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 330,
+      "distance_px": 330,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        330,
+        118,
+        407,
+        195
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            330,
+            118,
+            407,
+            195
+          ],
+          "gap_x": 330,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.338
+    },
+    {
+      "kind": "clean",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 325.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 326,
+      "distance_px": 326,
+      "confidence": 0.7642,
+      "method": "template_edge",
+      "gap_box": [
+        326,
+        113,
+        413,
+        200
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            326,
+            113,
+            413,
+            200
+          ],
+          "gap_x": 326,
+          "confidence": 0.764234185218811
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.6
+      },
+      "measured_ms": 10.623
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 193,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.6317,
+      "method": "contour",
+      "gap_box": [
+        191,
+        49,
+        231,
+        89
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            191,
+            49,
+            231,
+            89
+          ],
+          "gap_x": 191,
+          "confidence": 0.6317
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.403
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 189.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.7393,
+      "method": "template_edge",
+      "gap_box": [
+        190,
+        47,
+        234,
+        91
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            190,
+            47,
+            234,
+            91
+          ],
+          "gap_x": 190,
+          "confidence": 0.7393147349357605
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.761
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 257,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 255,
+      "distance_px": 255,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        255,
+        66,
+        308,
+        118
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            255,
+            66,
+            308,
+            118
+          ],
+          "gap_x": 255,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.624
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 253.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        253,
+        63,
+        311,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            253,
+            63,
+            311,
+            121
+          ],
+          "gap_x": 253,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.4
+      },
+      "measured_ms": 4.435
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 385,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 384,
+      "distance_px": 384,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        384,
+        100,
+        461,
+        177
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            384,
+            100,
+            461,
+            177
+          ],
+          "gap_x": 384,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.21
+    },
+    {
+      "kind": "clean",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 379.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 380,
+      "distance_px": 380,
+      "confidence": 0.7642,
+      "method": "template_edge",
+      "gap_box": [
+        380,
+        95,
+        467,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            380,
+            95,
+            467,
+            182
+          ],
+          "gap_x": 380,
+          "confidence": 0.764234185218811
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.1
+      },
+      "measured_ms": 10.152
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 191,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.6239,
+      "method": "contour",
+      "gap_box": [
+        190,
+        42,
+        230,
+        82
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            190,
+            42,
+            230,
+            82
+          ],
+          "gap_x": 190,
+          "confidence": 0.6239
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.5
+      },
+      "measured_ms": 0.482
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 188.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 188,
+      "distance_px": 188,
+      "confidence": 0.5839,
+      "method": "template_edge",
+      "gap_box": [
+        188,
+        40,
+        232,
+        84
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            188,
+            40,
+            232,
+            84
+          ],
+          "gap_x": 188,
+          "confidence": 0.5839495658874512
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.0
+      },
+      "measured_ms": 2.962
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 255,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        253,
+        57,
+        306,
+        109
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            253,
+            57,
+            306,
+            109
+          ],
+          "gap_x": 253,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.579
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 251.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 251,
+      "distance_px": 251,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        251,
+        54,
+        309,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            251,
+            54,
+            309,
+            112
+          ],
+          "gap_x": 251,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.5
+      },
+      "measured_ms": 4.509
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 382,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 381,
+      "distance_px": 381,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        381,
+        86,
+        458,
+        163
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            381,
+            86,
+            458,
+            163
+          ],
+          "gap_x": 381,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.212
+    },
+    {
+      "kind": "clean",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 376.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 377,
+      "distance_px": 377,
+      "confidence": 0.8365,
+      "method": "template_edge",
+      "gap_box": [
+        377,
+        81,
+        464,
+        168
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            377,
+            81,
+            464,
+            168
+          ],
+          "gap_x": 377,
+          "confidence": 0.836534321308136
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.2
+      },
+      "measured_ms": 10.156
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 183,
+      "distance_px": 183,
+      "confidence": 0.6312,
+      "method": "contour",
+      "gap_box": [
+        183,
+        75,
+        223,
+        115
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            183,
+            75,
+            223,
+            115
+          ],
+          "gap_x": 183,
+          "confidence": 0.6312
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.392
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 181.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 182,
+      "distance_px": 182,
+      "confidence": 0.6881,
+      "method": "template_edge",
+      "gap_box": [
+        182,
+        73,
+        226,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            182,
+            73,
+            226,
+            117
+          ],
+          "gap_x": 182,
+          "confidence": 0.6880981922149658
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.781
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 246,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 244,
+      "distance_px": 244,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        244,
+        100,
+        297,
+        152
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            244,
+            100,
+            297,
+            152
+          ],
+          "gap_x": 244,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.59
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 242.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 242,
+      "distance_px": 242,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        242,
+        97,
+        300,
+        155
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            242,
+            97,
+            300,
+            155
+          ],
+          "gap_x": 242,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.6
+      },
+      "measured_ms": 4.586
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 369,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 367,
+      "distance_px": 367,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        367,
+        151,
+        445,
+        228
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            367,
+            151,
+            445,
+            228
+          ],
+          "gap_x": 367,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.22
+    },
+    {
+      "kind": "clean",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 363.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 363,
+      "distance_px": 363,
+      "confidence": 0.8333,
+      "method": "template_edge",
+      "gap_box": [
+        363,
+        146,
+        450,
+        233
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            363,
+            146,
+            450,
+            233
+          ],
+          "gap_x": 363,
+          "confidence": 0.8333285450935364
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.5
+      },
+      "measured_ms": 10.492
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 181,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 179,
+      "distance_px": 179,
+      "confidence": 0.6336,
+      "method": "contour",
+      "gap_box": [
+        179,
+        69,
+        219,
+        109
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            179,
+            69,
+            219,
+            109
+          ],
+          "gap_x": 179,
+          "confidence": 0.6336
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.42
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 177.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 178,
+      "distance_px": 178,
+      "confidence": 0.6912,
+      "method": "template_edge",
+      "gap_box": [
+        178,
+        68,
+        222,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            178,
+            68,
+            222,
+            112
+          ],
+          "gap_x": 178,
+          "confidence": 0.6912292242050171
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.37
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 241,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 239,
+      "distance_px": 239,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        239,
+        93,
+        292,
+        145
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            239,
+            93,
+            292,
+            145
+          ],
+          "gap_x": 239,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.7
+      },
+      "measured_ms": 0.703
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 237.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 237,
+      "distance_px": 237,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        237,
+        90,
+        295,
+        148
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            237,
+            90,
+            295,
+            148
+          ],
+          "gap_x": 237,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.8
+      },
+      "measured_ms": 4.798
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 361,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 360,
+      "distance_px": 360,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        360,
+        140,
+        437,
+        217
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            360,
+            140,
+            437,
+            217
+          ],
+          "gap_x": 360,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.307
+    },
+    {
+      "kind": "clean",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 355.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 356,
+      "distance_px": 356,
+      "confidence": 0.8365,
+      "method": "template_edge",
+      "gap_box": [
+        356,
+        135,
+        443,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            356,
+            135,
+            443,
+            222
+          ],
+          "gap_x": 356,
+          "confidence": 0.836534321308136
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.6
+      },
+      "measured_ms": 10.597
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 163,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 162,
+      "distance_px": 162,
+      "confidence": 0.6321,
+      "method": "contour",
+      "gap_box": [
+        162,
+        59,
+        202,
+        99
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            162,
+            59,
+            202,
+            99
+          ],
+          "gap_x": 162,
+          "confidence": 0.6321
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.406
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 160.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 160,
+      "distance_px": 160,
+      "confidence": 0.7072,
+      "method": "template_edge",
+      "gap_box": [
+        160,
+        57,
+        204,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            160,
+            57,
+            204,
+            101
+          ],
+          "gap_x": 160,
+          "confidence": 0.7071736454963684
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.759
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 218,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 216,
+      "distance_px": 216,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        216,
+        79,
+        269,
+        131
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            216,
+            79,
+            269,
+            131
+          ],
+          "gap_x": 216,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.594
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 214.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        214,
+        76,
+        272,
+        134
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            214,
+            76,
+            272,
+            134
+          ],
+          "gap_x": 214,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.4
+      },
+      "measured_ms": 4.389
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 327,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 325,
+      "distance_px": 325,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        325,
+        119,
+        403,
+        196
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            325,
+            119,
+            403,
+            196
+          ],
+          "gap_x": 325,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.348
+    },
+    {
+      "kind": "clean",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 321.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 321,
+      "distance_px": 321,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        321,
+        114,
+        408,
+        201
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            321,
+            114,
+            408,
+            201
+          ],
+          "gap_x": 321,
+          "confidence": 0.9999999403953552
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.2
+      },
+      "measured_ms": 10.163
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 201,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 199,
+      "distance_px": 199,
+      "confidence": 0.6388,
+      "method": "contour",
+      "gap_box": [
+        199,
+        63,
+        239,
+        103
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            199,
+            63,
+            239,
+            103
+          ],
+          "gap_x": 199,
+          "confidence": 0.6388
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.395
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 198.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 198,
+      "distance_px": 198,
+      "confidence": 0.8951,
+      "method": "template_edge",
+      "gap_box": [
+        198,
+        61,
+        242,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            198,
+            61,
+            242,
+            105
+          ],
+          "gap_x": 198,
+          "confidence": 0.8951225876808167
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.0
+      },
+      "measured_ms": 2.968
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 268,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 266,
+      "distance_px": 266,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        266,
+        84,
+        319,
+        136
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            266,
+            84,
+            319,
+            136
+          ],
+          "gap_x": 266,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.7
+      },
+      "measured_ms": 0.695
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 264.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 264,
+      "distance_px": 264,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        264,
+        81,
+        322,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            264,
+            81,
+            322,
+            139
+          ],
+          "gap_x": 264,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.5
+      },
+      "measured_ms": 4.54
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 402,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 400,
+      "distance_px": 400,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        400,
+        127,
+        478,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            400,
+            127,
+            478,
+            204
+          ],
+          "gap_x": 400,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.207
+    },
+    {
+      "kind": "clean",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 396.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 396,
+      "distance_px": 396,
+      "confidence": 0.8333,
+      "method": "template_edge",
+      "gap_box": [
+        396,
+        122,
+        483,
+        209
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            396,
+            122,
+            483,
+            209
+          ],
+          "gap_x": 396,
+          "confidence": 0.8333287835121155
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.3
+      },
+      "measured_ms": 10.295
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 182,
+      "distance_px": 182,
+      "confidence": 0.6336,
+      "method": "contour",
+      "gap_box": [
+        182,
+        51,
+        222,
+        91
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            182,
+            51,
+            222,
+            91
+          ],
+          "gap_x": 182,
+          "confidence": 0.6336
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.377
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 180.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 181,
+      "distance_px": 181,
+      "confidence": 0.6912,
+      "method": "template_edge",
+      "gap_box": [
+        181,
+        50,
+        225,
+        94
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            181,
+            50,
+            225,
+            94
+          ],
+          "gap_x": 181,
+          "confidence": 0.6912292242050171
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.849
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 245,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 243,
+      "distance_px": 243,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        243,
+        69,
+        296,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            243,
+            69,
+            296,
+            121
+          ],
+          "gap_x": 243,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.579
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 241.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 241,
+      "distance_px": 241,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        241,
+        66,
+        299,
+        124
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            241,
+            66,
+            299,
+            124
+          ],
+          "gap_x": 241,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.4
+      },
+      "measured_ms": 4.393
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 367,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 366,
+      "distance_px": 366,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        366,
+        104,
+        443,
+        181
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            366,
+            104,
+            443,
+            181
+          ],
+          "gap_x": 366,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.304
+    },
+    {
+      "kind": "clean",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 361.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 362,
+      "distance_px": 362,
+      "confidence": 0.8365,
+      "method": "template_edge",
+      "gap_box": [
+        362,
+        99,
+        449,
+        186
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            362,
+            99,
+            449,
+            186
+          ],
+          "gap_x": 362,
+          "confidence": 0.836534321308136
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.6
+      },
+      "measured_ms": 10.64
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 162,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 160,
+      "distance_px": 160,
+      "confidence": 0.6388,
+      "method": "contour",
+      "gap_box": [
+        160,
+        72,
+        200,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            160,
+            72,
+            200,
+            112
+          ],
+          "gap_x": 160,
+          "confidence": 0.6388
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.4
+      },
+      "measured_ms": 0.409
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 159.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 159,
+      "distance_px": 159,
+      "confidence": 0.8951,
+      "method": "template_edge",
+      "gap_box": [
+        159,
+        70,
+        203,
+        114
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            159,
+            70,
+            203,
+            114
+          ],
+          "gap_x": 159,
+          "confidence": 0.8951225876808167
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.817
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 216,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 0.6745,
+      "method": "contour",
+      "gap_box": [
+        214,
+        96,
+        267,
+        148
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            214,
+            96,
+            267,
+            148
+          ],
+          "gap_x": 214,
+          "confidence": 0.6745
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.6
+      },
+      "measured_ms": 0.608
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 212.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 212,
+      "distance_px": 212,
+      "confidence": 1.0,
+      "method": "template_edge",
+      "gap_box": [
+        212,
+        93,
+        270,
+        151
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            212,
+            93,
+            270,
+            151
+          ],
+          "gap_x": 212,
+          "confidence": 0.9999998807907104
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 4.7
+      },
+      "measured_ms": 4.665
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 324,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 322,
+      "distance_px": 322,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        322,
+        145,
+        400,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            322,
+            145,
+            400,
+            222
+          ],
+          "gap_x": 322,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.225
+    },
+    {
+      "kind": "clean",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 318.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 318,
+      "distance_px": 318,
+      "confidence": 0.8333,
+      "method": "template_edge",
+      "gap_box": [
+        318,
+        140,
+        405,
+        227
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            318,
+            140,
+            405,
+            227
+          ],
+          "gap_x": 318,
+          "confidence": 0.8333287835121155
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 10.2
+      },
+      "measured_ms": 10.158
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 194,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 193,
+      "distance_px": 193,
+      "confidence": 0.6315,
+      "method": "contour",
+      "gap_box": [
+        193,
+        63,
+        233,
+        103
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            193,
+            63,
+            233,
+            103
+          ],
+          "gap_x": 193,
+          "confidence": 0.6315
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.979
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 191.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.8071,
+      "method": "template_edge",
+      "gap_box": [
+        191,
+        61,
+        235,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            191,
+            61,
+            235,
+            105
+          ],
+          "gap_x": 191,
+          "confidence": 0.8070566058158875
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.354
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 259,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 257,
+      "distance_px": 257,
+      "confidence": 0.6781,
+      "method": "contour",
+      "gap_box": [
+        257,
+        84,
+        310,
+        137
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            257,
+            84,
+            310,
+            137
+          ],
+          "gap_x": 257,
+          "confidence": 0.6781
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.296
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 255.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 255,
+      "distance_px": 255,
+      "confidence": 0.7446,
+      "method": "template_edge",
+      "gap_box": [
+        255,
+        81,
+        313,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            255,
+            81,
+            313,
+            139
+          ],
+          "gap_x": 255,
+          "confidence": 0.7445627450942993
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.238
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 388,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 387,
+      "distance_px": 387,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        387,
+        126,
+        464,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            387,
+            126,
+            464,
+            204
+          ],
+          "gap_x": 387,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.524
+    },
+    {
+      "kind": "texture",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 382.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 383,
+      "distance_px": 383,
+      "confidence": 0.5796,
+      "method": "template_edge",
+      "gap_box": [
+        383,
+        122,
+        470,
+        209
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            383,
+            122,
+            470,
+            209
+          ],
+          "gap_x": 383,
+          "confidence": 0.5796110033988953
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.56
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 166,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 164,
+      "distance_px": 164,
+      "confidence": 0.4975,
+      "method": "contour",
+      "gap_box": [
+        164,
+        32,
+        205,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            164,
+            32,
+            205,
+            122
+          ],
+          "gap_x": 164,
+          "confidence": 0.4975
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.924
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 162.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 163,
+      "distance_px": 163,
+      "confidence": 0.6415,
+      "method": "template_edge",
+      "gap_box": [
+        163,
+        56,
+        207,
+        100
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            163,
+            56,
+            207,
+            100
+          ],
+          "gap_x": 163,
+          "confidence": 0.6415113210678101
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.363
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 221,
+      "error_px": 10,
+      "error_base_px": 10.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 211,
+      "distance_px": 211,
+      "confidence": 0.6092,
+      "method": "contour",
+      "gap_box": [
+        211,
+        78,
+        272,
+        137
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            211,
+            78,
+            272,
+            137
+          ],
+          "gap_x": 211,
+          "confidence": 0.6092
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.337
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 217.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 217,
+      "distance_px": 217,
+      "confidence": 0.7044,
+      "method": "template_edge",
+      "gap_box": [
+        217,
+        75,
+        275,
+        133
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            217,
+            75,
+            275,
+            133
+          ],
+          "gap_x": 217,
+          "confidence": 0.7043957114219666
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.189
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 331,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 330,
+      "distance_px": 330,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        330,
+        117,
+        408,
+        195
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            330,
+            117,
+            408,
+            195
+          ],
+          "gap_x": 330,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.59
+    },
+    {
+      "kind": "texture",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 325.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 326,
+      "distance_px": 326,
+      "confidence": 0.6041,
+      "method": "template_edge",
+      "gap_box": [
+        326,
+        113,
+        413,
+        200
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            326,
+            113,
+            413,
+            200
+          ],
+          "gap_x": 326,
+          "confidence": 0.6041415929794312
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.5
+      },
+      "measured_ms": 11.547
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 193,
+      "error_px": 2,
+      "error_base_px": 2.6666666666666665,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.5698,
+      "method": "contour",
+      "gap_box": [
+        191,
+        48,
+        231,
+        98
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            191,
+            48,
+            231,
+            98
+          ],
+          "gap_x": 191,
+          "confidence": 0.5698
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 1.04
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 189.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.6317,
+      "method": "template_edge",
+      "gap_box": [
+        190,
+        47,
+        234,
+        91
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            190,
+            47,
+            234,
+            91
+          ],
+          "gap_x": 190,
+          "confidence": 0.6316549777984619
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.388
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 257,
+      "error_px": 8,
+      "error_base_px": 8.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 249,
+      "distance_px": 249,
+      "confidence": 0.6253,
+      "method": "contour",
+      "gap_box": [
+        249,
+        65,
+        308,
+        123
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            249,
+            65,
+            308,
+            123
+          ],
+          "gap_x": 249,
+          "confidence": 0.6253
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.294
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 253.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 0.5996,
+      "method": "template_edge",
+      "gap_box": [
+        253,
+        63,
+        311,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            253,
+            63,
+            311,
+            121
+          ],
+          "gap_x": 253,
+          "confidence": 0.5996224284172058
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.206
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 385,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 384,
+      "distance_px": 384,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        384,
+        99,
+        462,
+        177
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            384,
+            99,
+            462,
+            177
+          ],
+          "gap_x": 384,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.58
+    },
+    {
+      "kind": "texture",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 379.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 379,
+      "distance_px": 379,
+      "confidence": 0.5747,
+      "method": "template_edge",
+      "gap_box": [
+        379,
+        95,
+        466,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            379,
+            95,
+            466,
+            182
+          ],
+          "gap_x": 379,
+          "confidence": 0.5747397541999817
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.626
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 191,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.6286,
+      "method": "contour",
+      "gap_box": [
+        190,
+        43,
+        230,
+        83
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            190,
+            43,
+            230,
+            83
+          ],
+          "gap_x": 190,
+          "confidence": 0.6286
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.996
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 188.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 188,
+      "distance_px": 188,
+      "confidence": 0.6584,
+      "method": "template_edge",
+      "gap_box": [
+        188,
+        40,
+        232,
+        84
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            188,
+            40,
+            232,
+            84
+          ],
+          "gap_x": 188,
+          "confidence": 0.6583693027496338
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.21
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 255,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 0.6764,
+      "method": "contour",
+      "gap_box": [
+        253,
+        57,
+        306,
+        110
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            253,
+            57,
+            306,
+            110
+          ],
+          "gap_x": 253,
+          "confidence": 0.6764
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.298
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 251.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 251,
+      "distance_px": 251,
+      "confidence": 0.6344,
+      "method": "template_edge",
+      "gap_box": [
+        251,
+        54,
+        309,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            251,
+            54,
+            309,
+            112
+          ],
+          "gap_x": 251,
+          "confidence": 0.6344469785690308
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.34
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 382,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 381,
+      "distance_px": 381,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        381,
+        86,
+        458,
+        164
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            381,
+            86,
+            458,
+            164
+          ],
+          "gap_x": 381,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.478
+    },
+    {
+      "kind": "texture",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 376.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 377,
+      "distance_px": 377,
+      "confidence": 0.6091,
+      "method": "template_edge",
+      "gap_box": [
+        377,
+        81,
+        464,
+        168
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            377,
+            81,
+            464,
+            168
+          ],
+          "gap_x": 377,
+          "confidence": 0.609058141708374
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.7
+      },
+      "measured_ms": 11.746
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 183,
+      "distance_px": 183,
+      "confidence": 0.6015,
+      "method": "contour",
+      "gap_box": [
+        183,
+        74,
+        224,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            183,
+            74,
+            224,
+            122
+          ],
+          "gap_x": 183,
+          "confidence": 0.6015
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.933
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 181.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 182,
+      "distance_px": 182,
+      "confidence": 0.4562,
+      "method": "template_edge",
+      "gap_box": [
+        182,
+        73,
+        226,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            182,
+            73,
+            226,
+            117
+          ],
+          "gap_x": 182,
+          "confidence": 0.45622000098228455
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.36
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 246,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 244,
+      "distance_px": 244,
+      "confidence": 0.6982,
+      "method": "contour",
+      "gap_box": [
+        244,
+        98,
+        297,
+        154
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            244,
+            98,
+            297,
+            154
+          ],
+          "gap_x": 244,
+          "confidence": 0.6982
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.308
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 242.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 242,
+      "distance_px": 242,
+      "confidence": 0.5554,
+      "method": "template_edge",
+      "gap_box": [
+        242,
+        97,
+        300,
+        155
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            242,
+            97,
+            300,
+            155
+          ],
+          "gap_x": 242,
+          "confidence": 0.5553736686706543
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.204
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 369,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 367,
+      "distance_px": 367,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        367,
+        150,
+        445,
+        228
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            367,
+            150,
+            445,
+            228
+          ],
+          "gap_x": 367,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.553
+    },
+    {
+      "kind": "texture",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 363.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 363,
+      "distance_px": 363,
+      "confidence": 0.5955,
+      "method": "template_edge",
+      "gap_box": [
+        363,
+        145,
+        450,
+        232
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            363,
+            145,
+            450,
+            232
+          ],
+          "gap_x": 363,
+          "confidence": 0.5954771041870117
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.4
+      },
+      "measured_ms": 11.448
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 181,
+      "error_px": 3,
+      "error_base_px": 4.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 178,
+      "distance_px": 178,
+      "confidence": 0.5701,
+      "method": "contour",
+      "gap_box": [
+        178,
+        57,
+        224,
+        113
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            178,
+            57,
+            224,
+            113
+          ],
+          "gap_x": 178,
+          "confidence": 0.5701
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.907
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 177.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 178,
+      "distance_px": 178,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        178,
+        68,
+        222,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            178,
+            68,
+            222,
+            112
+          ],
+          "gap_x": 178,
+          "confidence": 0.533804178237915
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.299
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 241,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 239,
+      "distance_px": 239,
+      "confidence": 0.6619,
+      "method": "contour",
+      "gap_box": [
+        239,
+        93,
+        299,
+        146
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            239,
+            93,
+            299,
+            146
+          ],
+          "gap_x": 239,
+          "confidence": 0.6619
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.259
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 237.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 237,
+      "distance_px": 237,
+      "confidence": 0.6179,
+      "method": "template_edge",
+      "gap_box": [
+        237,
+        90,
+        295,
+        148
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            237,
+            90,
+            295,
+            148
+          ],
+          "gap_x": 237,
+          "confidence": 0.6178780198097229
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.201
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 361,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 360,
+      "distance_px": 360,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        360,
+        140,
+        438,
+        218
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            360,
+            140,
+            438,
+            218
+          ],
+          "gap_x": 360,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.519
+    },
+    {
+      "kind": "texture",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 355.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 355,
+      "distance_px": 355,
+      "confidence": 0.5456,
+      "method": "template_edge",
+      "gap_box": [
+        355,
+        135,
+        442,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            355,
+            135,
+            442,
+            222
+          ],
+          "gap_x": 355,
+          "confidence": 0.5456451773643494
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.634
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 163,
+      "error_px": 1,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 162,
+      "distance_px": 162,
+      "confidence": 0.608,
+      "method": "contour",
+      "gap_box": [
+        162,
+        59,
+        207,
+        99
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            162,
+            59,
+            207,
+            99
+          ],
+          "gap_x": 162,
+          "confidence": 0.608
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.947
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 160.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 161,
+      "distance_px": 161,
+      "confidence": 0.6245,
+      "method": "template_edge",
+      "gap_box": [
+        161,
+        57,
+        205,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            161,
+            57,
+            205,
+            101
+          ],
+          "gap_x": 161,
+          "confidence": 0.624498724937439
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.281
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 218,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 216,
+      "distance_px": 216,
+      "confidence": 0.6678,
+      "method": "contour",
+      "gap_box": [
+        216,
+        79,
+        271,
+        132
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            216,
+            79,
+            271,
+            132
+          ],
+          "gap_x": 216,
+          "confidence": 0.6678
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.286
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 214.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 0.6086,
+      "method": "template_edge",
+      "gap_box": [
+        214,
+        76,
+        272,
+        134
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            214,
+            76,
+            272,
+            134
+          ],
+          "gap_x": 214,
+          "confidence": 0.6086276173591614
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 6.3
+      },
+      "measured_ms": 6.341
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 327,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 325,
+      "distance_px": 325,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        325,
+        119,
+        403,
+        197
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            325,
+            119,
+            403,
+            197
+          ],
+          "gap_x": 325,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.7
+      },
+      "measured_ms": 2.686
+    },
+    {
+      "kind": "texture",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 321.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 321,
+      "distance_px": 321,
+      "confidence": 0.6217,
+      "method": "template_edge",
+      "gap_box": [
+        321,
+        114,
+        408,
+        201
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            321,
+            114,
+            408,
+            201
+          ],
+          "gap_x": 321,
+          "confidence": 0.6217451095581055
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 12.4
+      },
+      "measured_ms": 12.375
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 201,
+      "error_px": 197,
+      "error_base_px": 262.6666666666667,
+      "correct": false,
+      "success": true,
+      "gap_x": 4,
+      "distance_px": 4,
+      "confidence": 0.5118,
+      "method": "contour",
+      "gap_box": [
+        4,
+        1,
+        16,
+        14
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            4,
+            1,
+            16,
+            14
+          ],
+          "gap_x": 4,
+          "confidence": 0.5118
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.984
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 198.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 198,
+      "distance_px": 198,
+      "confidence": 0.6469,
+      "method": "template_edge",
+      "gap_box": [
+        198,
+        61,
+        242,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            198,
+            61,
+            242,
+            105
+          ],
+          "gap_x": 198,
+          "confidence": 0.6468783617019653
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.448
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 268,
+      "error_px": 8,
+      "error_base_px": 8.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 260,
+      "distance_px": 260,
+      "confidence": 0.5898,
+      "method": "contour",
+      "gap_box": [
+        260,
+        84,
+        325,
+        145
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            260,
+            84,
+            325,
+            145
+          ],
+          "gap_x": 260,
+          "confidence": 0.5898
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.4
+      },
+      "measured_ms": 1.362
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 264.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 264,
+      "distance_px": 264,
+      "confidence": 0.5731,
+      "method": "template_edge",
+      "gap_box": [
+        264,
+        81,
+        322,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            264,
+            81,
+            322,
+            139
+          ],
+          "gap_x": 264,
+          "confidence": 0.573067307472229
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.4
+      },
+      "measured_ms": 5.454
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 402,
+      "error_px": 5,
+      "error_base_px": 3.3333333333333335,
+      "correct": false,
+      "success": true,
+      "gap_x": 397,
+      "distance_px": 397,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        397,
+        127,
+        478,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            397,
+            127,
+            478,
+            204
+          ],
+          "gap_x": 397,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.8
+      },
+      "measured_ms": 2.765
+    },
+    {
+      "kind": "texture",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 396.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 396,
+      "distance_px": 396,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        396,
+        121,
+        483,
+        208
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            396,
+            121,
+            483,
+            208
+          ],
+          "gap_x": 396,
+          "confidence": 0.5337925553321838
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.9
+      },
+      "measured_ms": 11.952
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 13,
+      "error_base_px": 17.333333333333332,
+      "correct": false,
+      "success": true,
+      "gap_x": 171,
+      "distance_px": 171,
+      "confidence": 0.4817,
+      "method": "contour",
+      "gap_box": [
+        171,
+        30,
+        232,
+        95
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            171,
+            30,
+            232,
+            95
+          ],
+          "gap_x": 171,
+          "confidence": 0.4817
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.978
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 180.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 181,
+      "distance_px": 181,
+      "confidence": 0.5621,
+      "method": "template_edge",
+      "gap_box": [
+        181,
+        50,
+        225,
+        94
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            181,
+            50,
+            225,
+            94
+          ],
+          "gap_x": 181,
+          "confidence": 0.5621101260185242
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.271
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 245,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 243,
+      "distance_px": 243,
+      "confidence": 0.6784,
+      "method": "contour",
+      "gap_box": [
+        243,
+        69,
+        296,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            243,
+            69,
+            296,
+            122
+          ],
+          "gap_x": 243,
+          "confidence": 0.6784
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.332
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 241.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 241,
+      "distance_px": 241,
+      "confidence": 0.651,
+      "method": "template_edge",
+      "gap_box": [
+        241,
+        66,
+        299,
+        124
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            241,
+            66,
+            299,
+            124
+          ],
+          "gap_x": 241,
+          "confidence": 0.6509509086608887
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.257
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 367,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 366,
+      "distance_px": 366,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        366,
+        104,
+        443,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            366,
+            104,
+            443,
+            182
+          ],
+          "gap_x": 366,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.617
+    },
+    {
+      "kind": "texture",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 361.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 362,
+      "distance_px": 362,
+      "confidence": 0.5615,
+      "method": "template_edge",
+      "gap_box": [
+        362,
+        99,
+        449,
+        186
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            362,
+            99,
+            449,
+            186
+          ],
+          "gap_x": 362,
+          "confidence": 0.5614892840385437
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.584
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 162,
+      "error_px": 73,
+      "error_base_px": 97.33333333333333,
+      "correct": false,
+      "success": true,
+      "gap_x": 89,
+      "distance_px": 89,
+      "confidence": 0.5512,
+      "method": "contour",
+      "gap_box": [
+        89,
+        52,
+        104,
+        62
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            89,
+            52,
+            104,
+            62
+          ],
+          "gap_x": 89,
+          "confidence": 0.5512
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.951
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 159.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 159,
+      "distance_px": 159,
+      "confidence": 0.6114,
+      "method": "template_edge",
+      "gap_box": [
+        159,
+        70,
+        203,
+        114
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            159,
+            70,
+            203,
+            114
+          ],
+          "gap_x": 159,
+          "confidence": 0.6113811135292053
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.25
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 216,
+      "error_px": 2,
+      "error_base_px": 2.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 0.6642,
+      "method": "contour",
+      "gap_box": [
+        214,
+        93,
+        267,
+        149
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            214,
+            93,
+            267,
+            149
+          ],
+          "gap_x": 214,
+          "confidence": 0.6642
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.271
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 212.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 212,
+      "distance_px": 212,
+      "confidence": 0.628,
+      "method": "template_edge",
+      "gap_box": [
+        212,
+        93,
+        270,
+        151
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            212,
+            93,
+            270,
+            151
+          ],
+          "gap_x": 212,
+          "confidence": 0.6280285120010376
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.6
+      },
+      "measured_ms": 5.611
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 324,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 322,
+      "distance_px": 322,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        322,
+        145,
+        400,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            322,
+            145,
+            400,
+            222
+          ],
+          "gap_x": 322,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.7
+      },
+      "measured_ms": 2.688
+    },
+    {
+      "kind": "texture",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 318.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 318,
+      "distance_px": 318,
+      "confidence": 0.6063,
+      "method": "template_edge",
+      "gap_box": [
+        318,
+        139,
+        405,
+        226
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            318,
+            139,
+            405,
+            226
+          ],
+          "gap_x": 318,
+          "confidence": 0.6063438057899475
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.9
+      },
+      "measured_ms": 11.874
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 194,
+      "error_px": 136,
+      "error_base_px": 181.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.7644,
+      "method": "contour",
+      "gap_box": [
+        58,
+        40,
+        113,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            40,
+            113,
+            88
+          ],
+          "gap_x": 58,
+          "confidence": 0.7644
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.967
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 191.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.8071,
+      "method": "template_edge",
+      "gap_box": [
+        191,
+        61,
+        235,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            191,
+            61,
+            235,
+            105
+          ],
+          "gap_x": 191,
+          "confidence": 0.8070565462112427
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.366
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 259,
+      "error_px": 181,
+      "error_base_px": 181.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.274
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 255.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 255,
+      "distance_px": 255,
+      "confidence": 0.7446,
+      "method": "template_edge",
+      "gap_box": [
+        255,
+        81,
+        313,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            255,
+            81,
+            313,
+            139
+          ],
+          "gap_x": 255,
+          "confidence": 0.7445627450942993
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.1
+      },
+      "measured_ms": 5.133
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 388,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 387,
+      "distance_px": 387,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        387,
+        126,
+        464,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            387,
+            126,
+            464,
+            204
+          ],
+          "gap_x": 387,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.525
+    },
+    {
+      "kind": "distractor",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 382.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 383,
+      "distance_px": 383,
+      "confidence": 0.5796,
+      "method": "template_edge",
+      "gap_box": [
+        383,
+        122,
+        470,
+        209
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            383,
+            122,
+            470,
+            209
+          ],
+          "gap_x": 383,
+          "confidence": 0.5796110033988953
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.7
+      },
+      "measured_ms": 11.721
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 166,
+      "error_px": 108,
+      "error_base_px": 144.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.6061,
+      "method": "contour",
+      "gap_box": [
+        58,
+        9,
+        113,
+        97
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            9,
+            113,
+            97
+          ],
+          "gap_x": 58,
+          "confidence": 0.6061
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.928
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 162.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 163,
+      "distance_px": 163,
+      "confidence": 0.6415,
+      "method": "template_edge",
+      "gap_box": [
+        163,
+        56,
+        207,
+        100
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            163,
+            56,
+            207,
+            100
+          ],
+          "gap_x": 163,
+          "confidence": 0.6415113210678101
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.258
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 221,
+      "error_px": 143,
+      "error_base_px": 143.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            121
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.349
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 217.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 217,
+      "distance_px": 217,
+      "confidence": 0.7044,
+      "method": "template_edge",
+      "gap_box": [
+        217,
+        75,
+        275,
+        133
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            217,
+            75,
+            275,
+            133
+          ],
+          "gap_x": 217,
+          "confidence": 0.7043957114219666
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.1
+      },
+      "measured_ms": 5.125
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 331,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 330,
+      "distance_px": 330,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        330,
+        117,
+        408,
+        195
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            330,
+            117,
+            408,
+            195
+          ],
+          "gap_x": 330,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.481
+    },
+    {
+      "kind": "distractor",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 325.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 326,
+      "distance_px": 326,
+      "confidence": 0.6041,
+      "method": "template_edge",
+      "gap_box": [
+        326,
+        113,
+        413,
+        200
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            326,
+            113,
+            413,
+            200
+          ],
+          "gap_x": 326,
+          "confidence": 0.6041417717933655
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.4
+      },
+      "measured_ms": 11.376
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 193,
+      "error_px": 152,
+      "error_base_px": 202.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 41,
+      "distance_px": 41,
+      "confidence": 0.7207,
+      "method": "contour",
+      "gap_box": [
+        41,
+        40,
+        107,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            41,
+            40,
+            107,
+            88
+          ],
+          "gap_x": 41,
+          "confidence": 0.7207
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 1.028
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 189.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.6317,
+      "method": "template_edge",
+      "gap_box": [
+        190,
+        47,
+        234,
+        91
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            190,
+            47,
+            234,
+            91
+          ],
+          "gap_x": 190,
+          "confidence": 0.6316549777984619
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.198
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 257,
+      "error_px": 179,
+      "error_base_px": 179.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        44,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            44,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.289
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 253.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 0.5996,
+      "method": "template_edge",
+      "gap_box": [
+        253,
+        63,
+        311,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            253,
+            63,
+            311,
+            121
+          ],
+          "gap_x": 253,
+          "confidence": 0.5996224284172058
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.0
+      },
+      "measured_ms": 5.025
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 385,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 384,
+      "distance_px": 384,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        384,
+        99,
+        462,
+        177
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            384,
+            99,
+            462,
+            177
+          ],
+          "gap_x": 384,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.466
+    },
+    {
+      "kind": "distractor",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 379.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 379,
+      "distance_px": 379,
+      "confidence": 0.5747,
+      "method": "template_edge",
+      "gap_box": [
+        379,
+        95,
+        466,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            379,
+            95,
+            466,
+            182
+          ],
+          "gap_x": 379,
+          "confidence": 0.5747397541999817
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.624
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 191,
+      "error_px": 147,
+      "error_base_px": 196.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 44,
+      "distance_px": 44,
+      "confidence": 0.6396,
+      "method": "contour",
+      "gap_box": [
+        44,
+        26,
+        107,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            44,
+            26,
+            107,
+            88
+          ],
+          "gap_x": 44,
+          "confidence": 0.6396
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.923
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 188.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 188,
+      "distance_px": 188,
+      "confidence": 0.6584,
+      "method": "template_edge",
+      "gap_box": [
+        188,
+        40,
+        232,
+        84
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            188,
+            40,
+            232,
+            84
+          ],
+          "gap_x": 188,
+          "confidence": 0.6583693027496338
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.316
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 255,
+      "error_px": 177,
+      "error_base_px": 177.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            122
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.2
+      },
+      "measured_ms": 1.247
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 251.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 251,
+      "distance_px": 251,
+      "confidence": 0.6344,
+      "method": "template_edge",
+      "gap_box": [
+        251,
+        54,
+        309,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            251,
+            54,
+            309,
+            112
+          ],
+          "gap_x": 251,
+          "confidence": 0.6344469785690308
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.302
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 382,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 381,
+      "distance_px": 381,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        381,
+        86,
+        458,
+        164
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            381,
+            86,
+            458,
+            164
+          ],
+          "gap_x": 381,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.515
+    },
+    {
+      "kind": "distractor",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 376.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 377,
+      "distance_px": 377,
+      "confidence": 0.6091,
+      "method": "template_edge",
+      "gap_box": [
+        377,
+        81,
+        464,
+        168
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            377,
+            81,
+            464,
+            168
+          ],
+          "gap_x": 377,
+          "confidence": 0.609058141708374
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.654
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 131,
+      "error_base_px": 174.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.6091,
+      "method": "contour",
+      "gap_box": [
+        53,
+        32,
+        134,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            32,
+            134,
+            101
+          ],
+          "gap_x": 53,
+          "confidence": 0.6091
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.898
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 181.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 182,
+      "distance_px": 182,
+      "confidence": 0.4562,
+      "method": "template_edge",
+      "gap_box": [
+        182,
+        73,
+        226,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            182,
+            73,
+            226,
+            117
+          ],
+          "gap_x": 182,
+          "confidence": 0.45621994137763977
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.221
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 246,
+      "error_px": 168,
+      "error_base_px": 168.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        51,
+        148,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            51,
+            148,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.277
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 242.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 242,
+      "distance_px": 242,
+      "confidence": 0.5554,
+      "method": "template_edge",
+      "gap_box": [
+        242,
+        97,
+        300,
+        155
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            242,
+            97,
+            300,
+            155
+          ],
+          "gap_x": 242,
+          "confidence": 0.5553736686706543
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.265
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 369,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 367,
+      "distance_px": 367,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        367,
+        150,
+        445,
+        228
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            367,
+            150,
+            445,
+            228
+          ],
+          "gap_x": 367,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.517
+    },
+    {
+      "kind": "distractor",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 363.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 363,
+      "distance_px": 363,
+      "confidence": 0.5955,
+      "method": "template_edge",
+      "gap_box": [
+        363,
+        145,
+        450,
+        232
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            363,
+            145,
+            450,
+            232
+          ],
+          "gap_x": 363,
+          "confidence": 0.5954769849777222
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.5
+      },
+      "measured_ms": 11.509
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 181,
+      "error_px": 128,
+      "error_base_px": 170.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.7359,
+      "method": "contour",
+      "gap_box": [
+        53,
+        40,
+        111,
+        89
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            40,
+            111,
+            89
+          ],
+          "gap_x": 53,
+          "confidence": 0.7359
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 1.054
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 177.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 178,
+      "distance_px": 178,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        178,
+        68,
+        222,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            178,
+            68,
+            222,
+            112
+          ],
+          "gap_x": 178,
+          "confidence": 0.5338042378425598
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.297
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 241,
+      "error_px": 163,
+      "error_base_px": 163.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        144,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            144,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.329
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 237.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 237,
+      "distance_px": 237,
+      "confidence": 0.6179,
+      "method": "template_edge",
+      "gap_box": [
+        237,
+        90,
+        295,
+        148
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            237,
+            90,
+            295,
+            148
+          ],
+          "gap_x": 237,
+          "confidence": 0.6178780794143677
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.6
+      },
+      "measured_ms": 5.629
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 361,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 360,
+      "distance_px": 360,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        360,
+        140,
+        438,
+        218
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            360,
+            140,
+            438,
+            218
+          ],
+          "gap_x": 360,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.508
+    },
+    {
+      "kind": "distractor",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 355.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 355,
+      "distance_px": 355,
+      "confidence": 0.5456,
+      "method": "template_edge",
+      "gap_box": [
+        355,
+        135,
+        442,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            355,
+            135,
+            442,
+            222
+          ],
+          "gap_x": 355,
+          "confidence": 0.5456451773643494
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.8
+      },
+      "measured_ms": 11.78
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 163,
+      "error_px": 105,
+      "error_base_px": 140.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.7951,
+      "method": "contour",
+      "gap_box": [
+        58,
+        40,
+        109,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            40,
+            109,
+            88
+          ],
+          "gap_x": 58,
+          "confidence": 0.7951
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.928
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 160.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 161,
+      "distance_px": 161,
+      "confidence": 0.6245,
+      "method": "template_edge",
+      "gap_box": [
+        161,
+        57,
+        205,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            161,
+            57,
+            205,
+            101
+          ],
+          "gap_x": 161,
+          "confidence": 0.624498724937439
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.216
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 218,
+      "error_px": 140,
+      "error_base_px": 140.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        47,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            47,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.296
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 214.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 0.6086,
+      "method": "template_edge",
+      "gap_box": [
+        214,
+        76,
+        272,
+        134
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            214,
+            76,
+            272,
+            134
+          ],
+          "gap_x": 214,
+          "confidence": 0.6086276173591614
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.5
+      },
+      "measured_ms": 5.496
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 327,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 325,
+      "distance_px": 325,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        325,
+        119,
+        403,
+        197
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            325,
+            119,
+            403,
+            197
+          ],
+          "gap_x": 325,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.504
+    },
+    {
+      "kind": "distractor",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 321.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 321,
+      "distance_px": 321,
+      "confidence": 0.6217,
+      "method": "template_edge",
+      "gap_box": [
+        321,
+        114,
+        408,
+        201
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            321,
+            114,
+            408,
+            201
+          ],
+          "gap_x": 321,
+          "confidence": 0.6217451095581055
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.58
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 201,
+      "error_px": 148,
+      "error_base_px": 197.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.7721,
+      "method": "contour",
+      "gap_box": [
+        53,
+        40,
+        107,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            40,
+            107,
+            88
+          ],
+          "gap_x": 53,
+          "confidence": 0.7721
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.961
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 198.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 198,
+      "distance_px": 198,
+      "confidence": 0.6469,
+      "method": "template_edge",
+      "gap_box": [
+        198,
+        61,
+        242,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            198,
+            61,
+            242,
+            105
+          ],
+          "gap_x": 198,
+          "confidence": 0.6468784809112549
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.313
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 268,
+      "error_px": 190,
+      "error_base_px": 190.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.272
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 264.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 264,
+      "distance_px": 264,
+      "confidence": 0.5731,
+      "method": "template_edge",
+      "gap_box": [
+        264,
+        81,
+        322,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            264,
+            81,
+            322,
+            139
+          ],
+          "gap_x": 264,
+          "confidence": 0.573067307472229
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.183
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 402,
+      "error_px": 5,
+      "error_base_px": 3.3333333333333335,
+      "correct": false,
+      "success": true,
+      "gap_x": 397,
+      "distance_px": 397,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        397,
+        127,
+        478,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            397,
+            127,
+            478,
+            204
+          ],
+          "gap_x": 397,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.467
+    },
+    {
+      "kind": "distractor",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 396.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 396,
+      "distance_px": 396,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        396,
+        121,
+        483,
+        208
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            396,
+            121,
+            483,
+            208
+          ],
+          "gap_x": 396,
+          "confidence": 0.5337925553321838
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.605
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 143,
+      "error_base_px": 190.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 41,
+      "distance_px": 41,
+      "confidence": 0.7074,
+      "method": "contour",
+      "gap_box": [
+        41,
+        40,
+        125,
+        89
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            41,
+            40,
+            125,
+            89
+          ],
+          "gap_x": 41,
+          "confidence": 0.7074
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.991
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 180.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 181,
+      "distance_px": 181,
+      "confidence": 0.5621,
+      "method": "template_edge",
+      "gap_box": [
+        181,
+        50,
+        225,
+        94
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            181,
+            50,
+            225,
+            94
+          ],
+          "gap_x": 181,
+          "confidence": 0.5621101260185242
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.296
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 245,
+      "error_px": 187,
+      "error_base_px": 187.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.7996,
+      "method": "contour",
+      "gap_box": [
+        58,
+        53,
+        146,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            53,
+            146,
+            117
+          ],
+          "gap_x": 58,
+          "confidence": 0.7996
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.304
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 241.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 241,
+      "distance_px": 241,
+      "confidence": 0.651,
+      "method": "template_edge",
+      "gap_box": [
+        241,
+        66,
+        299,
+        124
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            241,
+            66,
+            299,
+            124
+          ],
+          "gap_x": 241,
+          "confidence": 0.6509509086608887
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.236
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 367,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 366,
+      "distance_px": 366,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        366,
+        104,
+        443,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            366,
+            104,
+            443,
+            182
+          ],
+          "gap_x": 366,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.496
+    },
+    {
+      "kind": "distractor",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 361.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 362,
+      "distance_px": 362,
+      "confidence": 0.5615,
+      "method": "template_edge",
+      "gap_box": [
+        362,
+        99,
+        449,
+        186
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            362,
+            99,
+            449,
+            186
+          ],
+          "gap_x": 362,
+          "confidence": 0.5614892840385437
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.584
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 162,
+      "error_px": 124,
+      "error_base_px": 165.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 38,
+      "distance_px": 38,
+      "confidence": 0.6352,
+      "method": "contour",
+      "gap_box": [
+        38,
+        40,
+        107,
+        99
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            38,
+            40,
+            107,
+            99
+          ],
+          "gap_x": 38,
+          "confidence": 0.6352
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.919
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 159.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 159,
+      "distance_px": 159,
+      "confidence": 0.6114,
+      "method": "template_edge",
+      "gap_box": [
+        159,
+        70,
+        203,
+        114
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            159,
+            70,
+            203,
+            114
+          ],
+          "gap_x": 159,
+          "confidence": 0.6113811135292053
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.233
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 216,
+      "error_px": 147,
+      "error_base_px": 147.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 69,
+      "distance_px": 69,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        69,
+        53,
+        142,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            69,
+            53,
+            142,
+            122
+          ],
+          "gap_x": 69,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.277
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 212.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 212,
+      "distance_px": 212,
+      "confidence": 0.628,
+      "method": "template_edge",
+      "gap_box": [
+        212,
+        93,
+        270,
+        151
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            212,
+            93,
+            270,
+            151
+          ],
+          "gap_x": 212,
+          "confidence": 0.6280285120010376
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.173
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 324,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 322,
+      "distance_px": 322,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        322,
+        145,
+        400,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            322,
+            145,
+            400,
+            222
+          ],
+          "gap_x": 322,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.485
+    },
+    {
+      "kind": "distractor",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 318.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 318,
+      "distance_px": 318,
+      "confidence": 0.6063,
+      "method": "template_edge",
+      "gap_box": [
+        318,
+        139,
+        405,
+        226
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            318,
+            139,
+            405,
+            226
+          ],
+          "gap_x": 318,
+          "confidence": 0.6063438057899475
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.598
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 194,
+      "error_px": 136,
+      "error_base_px": 181.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.7644,
+      "method": "contour",
+      "gap_box": [
+        58,
+        40,
+        113,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            40,
+            113,
+            88
+          ],
+          "gap_x": 58,
+          "confidence": 0.7644
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 0.973
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 191.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 191,
+      "distance_px": 191,
+      "confidence": 0.8071,
+      "method": "template_edge",
+      "gap_box": [
+        191,
+        61,
+        235,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            191,
+            61,
+            235,
+            105
+          ],
+          "gap_x": 191,
+          "confidence": 0.8070565462112427
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.301
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 259,
+      "error_px": 181,
+      "error_base_px": 181.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.317
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 255.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 255,
+      "distance_px": 255,
+      "confidence": 0.7446,
+      "method": "template_edge",
+      "gap_box": [
+        255,
+        81,
+        313,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            255,
+            81,
+            313,
+            139
+          ],
+          "gap_x": 255,
+          "confidence": 0.7445627450942993
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.271
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 388,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 387,
+      "distance_px": 387,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        387,
+        126,
+        464,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            387,
+            126,
+            464,
+            204
+          ],
+          "gap_x": 387,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.523
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 0,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 382.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 383,
+      "distance_px": 383,
+      "confidence": 0.5796,
+      "method": "template_edge",
+      "gap_box": [
+        383,
+        122,
+        470,
+        209
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            383,
+            122,
+            470,
+            209
+          ],
+          "gap_x": 383,
+          "confidence": 0.5796110033988953
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.8
+      },
+      "measured_ms": 11.838
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 166,
+      "error_px": 159,
+      "error_base_px": 212.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 7,
+      "distance_px": 7,
+      "confidence": 0.608,
+      "method": "contour",
+      "gap_box": [
+        7,
+        55,
+        54,
+        99
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            7,
+            55,
+            54,
+            99
+          ],
+          "gap_x": 7,
+          "confidence": 0.608
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.1
+      },
+      "measured_ms": 1.126
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 162.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 163,
+      "distance_px": 163,
+      "confidence": 0.6415,
+      "method": "template_edge",
+      "gap_box": [
+        163,
+        56,
+        207,
+        100
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            163,
+            56,
+            207,
+            100
+          ],
+          "gap_x": 163,
+          "confidence": 0.6415113210678101
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.431
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 221,
+      "error_px": 143,
+      "error_base_px": 143.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            121
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.282
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 217.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 217,
+      "distance_px": 217,
+      "confidence": 0.7044,
+      "method": "template_edge",
+      "gap_box": [
+        217,
+        75,
+        275,
+        133
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            217,
+            75,
+            275,
+            133
+          ],
+          "gap_x": 217,
+          "confidence": 0.7043957114219666
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.4
+      },
+      "measured_ms": 5.408
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 331,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 330,
+      "distance_px": 330,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        330,
+        117,
+        408,
+        195
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            330,
+            117,
+            408,
+            195
+          ],
+          "gap_x": 330,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.554
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 1,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 325.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 326,
+      "distance_px": 326,
+      "confidence": 0.6041,
+      "method": "template_edge",
+      "gap_box": [
+        326,
+        113,
+        413,
+        200
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            326,
+            113,
+            413,
+            200
+          ],
+          "gap_x": 326,
+          "confidence": 0.6041415929794312
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.8
+      },
+      "measured_ms": 11.769
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 193,
+      "error_px": 186,
+      "error_base_px": 248.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 7,
+      "distance_px": 7,
+      "confidence": 0.7855,
+      "method": "contour",
+      "gap_box": [
+        7,
+        40,
+        107,
+        90
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            7,
+            40,
+            107,
+            90
+          ],
+          "gap_x": 7,
+          "confidence": 0.7855
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.918
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 189.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 190,
+      "distance_px": 190,
+      "confidence": 0.6317,
+      "method": "template_edge",
+      "gap_box": [
+        190,
+        47,
+        234,
+        91
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            190,
+            47,
+            234,
+            91
+          ],
+          "gap_x": 190,
+          "confidence": 0.6316549777984619
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.275
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 257,
+      "error_px": 179,
+      "error_base_px": 179.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        44,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            44,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.306
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 253.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 253,
+      "distance_px": 253,
+      "confidence": 0.5996,
+      "method": "template_edge",
+      "gap_box": [
+        253,
+        63,
+        311,
+        121
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            253,
+            63,
+            311,
+            121
+          ],
+          "gap_x": 253,
+          "confidence": 0.5996223092079163
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.16
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 385,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 384,
+      "distance_px": 384,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        384,
+        99,
+        462,
+        177
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            384,
+            99,
+            462,
+            177
+          ],
+          "gap_x": 384,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.551
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 2,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 379.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 379,
+      "distance_px": 379,
+      "confidence": 0.5747,
+      "method": "template_edge",
+      "gap_box": [
+        379,
+        95,
+        466,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            379,
+            95,
+            466,
+            182
+          ],
+          "gap_x": 379,
+          "confidence": 0.5747397541999817
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.645
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 191,
+      "error_px": 147,
+      "error_base_px": 196.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 44,
+      "distance_px": 44,
+      "confidence": 0.6396,
+      "method": "contour",
+      "gap_box": [
+        44,
+        26,
+        107,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            44,
+            26,
+            107,
+            88
+          ],
+          "gap_x": 44,
+          "confidence": 0.6396
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 1.01
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 188.25,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 188,
+      "distance_px": 188,
+      "confidence": 0.6584,
+      "method": "template_edge",
+      "gap_box": [
+        188,
+        40,
+        232,
+        84
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            188,
+            40,
+            232,
+            84
+          ],
+          "gap_x": 188,
+          "confidence": 0.658369243144989
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.32
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 255,
+      "error_px": 177,
+      "error_base_px": 177.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            122
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.327
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 251.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 251,
+      "distance_px": 251,
+      "confidence": 0.6344,
+      "method": "template_edge",
+      "gap_box": [
+        251,
+        54,
+        309,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            251,
+            54,
+            309,
+            112
+          ],
+          "gap_x": 251,
+          "confidence": 0.6344469785690308
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.159
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 382,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 381,
+      "distance_px": 381,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        381,
+        86,
+        458,
+        164
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            381,
+            86,
+            458,
+            164
+          ],
+          "gap_x": 381,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.539
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 3,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 376.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 377,
+      "distance_px": 377,
+      "confidence": 0.6091,
+      "method": "template_edge",
+      "gap_box": [
+        377,
+        81,
+        464,
+        168
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            377,
+            81,
+            464,
+            168
+          ],
+          "gap_x": 377,
+          "confidence": 0.609058141708374
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.6
+      },
+      "measured_ms": 11.612
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 131,
+      "error_base_px": 174.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.6091,
+      "method": "contour",
+      "gap_box": [
+        53,
+        32,
+        134,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            32,
+            134,
+            101
+          ],
+          "gap_x": 53,
+          "confidence": 0.6091
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.938
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 181.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 182,
+      "distance_px": 182,
+      "confidence": 0.4562,
+      "method": "template_edge",
+      "gap_box": [
+        182,
+        73,
+        226,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            182,
+            73,
+            226,
+            117
+          ],
+          "gap_x": 182,
+          "confidence": 0.45621994137763977
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.185
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 246,
+      "error_px": 168,
+      "error_base_px": 168.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        51,
+        148,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            51,
+            148,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.312
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 242.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 242,
+      "distance_px": 242,
+      "confidence": 0.5554,
+      "method": "template_edge",
+      "gap_box": [
+        242,
+        97,
+        300,
+        155
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            242,
+            97,
+            300,
+            155
+          ],
+          "gap_x": 242,
+          "confidence": 0.5553736686706543
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.314
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 369,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 367,
+      "distance_px": 367,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        367,
+        150,
+        445,
+        228
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            367,
+            150,
+            445,
+            228
+          ],
+          "gap_x": 367,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.474
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 4,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 363.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 363,
+      "distance_px": 363,
+      "confidence": 0.5955,
+      "method": "template_edge",
+      "gap_box": [
+        363,
+        145,
+        450,
+        232
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            363,
+            145,
+            450,
+            232
+          ],
+          "gap_x": 363,
+          "confidence": 0.5954769849777222
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.8
+      },
+      "measured_ms": 11.777
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 181,
+      "error_px": 128,
+      "error_base_px": 170.66666666666666,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.7359,
+      "method": "contour",
+      "gap_box": [
+        53,
+        40,
+        111,
+        89
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            40,
+            111,
+            89
+          ],
+          "gap_x": 53,
+          "confidence": 0.7359
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.926
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 177.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 178,
+      "distance_px": 178,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        178,
+        68,
+        222,
+        112
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            178,
+            68,
+            222,
+            112
+          ],
+          "gap_x": 178,
+          "confidence": 0.5338042378425598
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.446
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 241,
+      "error_px": 163,
+      "error_base_px": 163.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        144,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            144,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.261
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 237.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 237,
+      "distance_px": 237,
+      "confidence": 0.6179,
+      "method": "template_edge",
+      "gap_box": [
+        237,
+        90,
+        295,
+        148
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            237,
+            90,
+            295,
+            148
+          ],
+          "gap_x": 237,
+          "confidence": 0.6178780794143677
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.1
+      },
+      "measured_ms": 5.06
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 361,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 360,
+      "distance_px": 360,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        360,
+        140,
+        438,
+        218
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            360,
+            140,
+            438,
+            218
+          ],
+          "gap_x": 360,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.64
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 5,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 355.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 355,
+      "distance_px": 355,
+      "confidence": 0.5456,
+      "method": "template_edge",
+      "gap_box": [
+        355,
+        135,
+        442,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            355,
+            135,
+            442,
+            222
+          ],
+          "gap_x": 355,
+          "confidence": 0.5456452369689941
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.3
+      },
+      "measured_ms": 11.267
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 163,
+      "error_px": 105,
+      "error_base_px": 140.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 58,
+      "distance_px": 58,
+      "confidence": 0.7951,
+      "method": "contour",
+      "gap_box": [
+        58,
+        40,
+        109,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            58,
+            40,
+            109,
+            88
+          ],
+          "gap_x": 58,
+          "confidence": 0.7951
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.945
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 160.5,
+      "error_px": 0.5,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 161,
+      "distance_px": 161,
+      "confidence": 0.6245,
+      "method": "template_edge",
+      "gap_box": [
+        161,
+        57,
+        205,
+        101
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            161,
+            57,
+            205,
+            101
+          ],
+          "gap_x": 161,
+          "confidence": 0.624498724937439
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.189
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 218,
+      "error_px": 140,
+      "error_base_px": 140.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        47,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            47,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.286
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 214.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 214,
+      "distance_px": 214,
+      "confidence": 0.6086,
+      "method": "template_edge",
+      "gap_box": [
+        214,
+        76,
+        272,
+        134
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            214,
+            76,
+            272,
+            134
+          ],
+          "gap_x": 214,
+          "confidence": 0.6086275577545166
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.1
+      },
+      "measured_ms": 5.144
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 327,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 325,
+      "distance_px": 325,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        325,
+        119,
+        403,
+        197
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            325,
+            119,
+            403,
+            197
+          ],
+          "gap_x": 325,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.461
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 6,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 321.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 321,
+      "distance_px": 321,
+      "confidence": 0.6217,
+      "method": "template_edge",
+      "gap_box": [
+        321,
+        114,
+        408,
+        201
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            321,
+            114,
+            408,
+            201
+          ],
+          "gap_x": 321,
+          "confidence": 0.6217451095581055
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.5
+      },
+      "measured_ms": 11.474
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 201,
+      "error_px": 148,
+      "error_base_px": 197.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 53,
+      "distance_px": 53,
+      "confidence": 0.7721,
+      "method": "contour",
+      "gap_box": [
+        53,
+        40,
+        107,
+        88
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            53,
+            40,
+            107,
+            88
+          ],
+          "gap_x": 53,
+          "confidence": 0.7721
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.929
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 198.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 198,
+      "distance_px": 198,
+      "confidence": 0.6469,
+      "method": "template_edge",
+      "gap_box": [
+        198,
+        61,
+        242,
+        105
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            198,
+            61,
+            242,
+            105
+          ],
+          "gap_x": 198,
+          "confidence": 0.6468784809112549
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.2
+      },
+      "measured_ms": 3.208
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 268,
+      "error_px": 190,
+      "error_base_px": 190.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 78,
+      "distance_px": 78,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        78,
+        53,
+        142,
+        117
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            78,
+            53,
+            142,
+            117
+          ],
+          "gap_x": 78,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.287
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 264.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 264,
+      "distance_px": 264,
+      "confidence": 0.5731,
+      "method": "template_edge",
+      "gap_box": [
+        264,
+        81,
+        322,
+        139
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            264,
+            81,
+            322,
+            139
+          ],
+          "gap_x": 264,
+          "confidence": 0.573067307472229
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.3
+      },
+      "measured_ms": 5.292
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 402,
+      "error_px": 5,
+      "error_base_px": 3.3333333333333335,
+      "correct": false,
+      "success": true,
+      "gap_x": 397,
+      "distance_px": 397,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        397,
+        127,
+        478,
+        204
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            397,
+            127,
+            478,
+            204
+          ],
+          "gap_x": 397,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.6
+      },
+      "measured_ms": 2.555
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 7,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 396.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 396,
+      "distance_px": 396,
+      "confidence": 0.5338,
+      "method": "template_edge",
+      "gap_box": [
+        396,
+        121,
+        483,
+        208
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            396,
+            121,
+            483,
+            208
+          ],
+          "gap_x": 396,
+          "confidence": 0.5337925553321838
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.9
+      },
+      "measured_ms": 11.862
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 184,
+      "error_px": 184,
+      "error_base_px": 245.33333333333334,
+      "correct": false,
+      "success": true,
+      "gap_x": 0,
+      "distance_px": 0,
+      "confidence": 0.6836,
+      "method": "contour",
+      "gap_box": [
+        0,
+        10,
+        125,
+        107
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            0,
+            10,
+            125,
+            107
+          ],
+          "gap_x": 0,
+          "confidence": 0.6836
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.0
+      },
+      "measured_ms": 1.005
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 180.75,
+      "error_px": 0.25,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 181,
+      "distance_px": 181,
+      "confidence": 0.5621,
+      "method": "template_edge",
+      "gap_box": [
+        181,
+        50,
+        225,
+        94
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            181,
+            50,
+            225,
+            94
+          ],
+          "gap_x": 181,
+          "confidence": 0.562110185623169
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.4
+      },
+      "measured_ms": 3.396
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 245,
+      "error_px": 235,
+      "error_base_px": 235.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 10,
+      "distance_px": 10,
+      "confidence": 0.7863,
+      "method": "contour",
+      "gap_box": [
+        10,
+        53,
+        146,
+        132
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            10,
+            53,
+            146,
+            132
+          ],
+          "gap_x": 10,
+          "confidence": 0.7863
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.297
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 241.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 241,
+      "distance_px": 241,
+      "confidence": 0.651,
+      "method": "template_edge",
+      "gap_box": [
+        241,
+        66,
+        299,
+        124
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            241,
+            66,
+            299,
+            124
+          ],
+          "gap_x": 241,
+          "confidence": 0.6509509086608887
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.1
+      },
+      "measured_ms": 5.146
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 367,
+      "error_px": 1,
+      "error_base_px": 0.6666666666666666,
+      "correct": true,
+      "success": true,
+      "gap_x": 366,
+      "distance_px": 366,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        366,
+        104,
+        443,
+        182
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            366,
+            104,
+            443,
+            182
+          ],
+          "gap_x": 366,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.7
+      },
+      "measured_ms": 2.686
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 8,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 361.5,
+      "error_px": 0.5,
+      "error_base_px": 0.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 362,
+      "distance_px": 362,
+      "confidence": 0.5615,
+      "method": "template_edge",
+      "gap_box": [
+        362,
+        99,
+        449,
+        186
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            362,
+            99,
+            449,
+            186
+          ],
+          "gap_x": 362,
+          "confidence": 0.5614892840385437
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.7
+      },
+      "measured_ms": 11.735
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "image_only",
+      "expected_x": 162,
+      "error_px": 162,
+      "error_base_px": 216.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 0,
+      "distance_px": 0,
+      "confidence": 0.64,
+      "method": "contour",
+      "gap_box": [
+        0,
+        40,
+        107,
+        116
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            0,
+            40,
+            107,
+            116
+          ],
+          "gap_x": 0,
+          "confidence": 0.64
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.9
+      },
+      "measured_ms": 0.884
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 0.75,
+      "mode": "with_piece",
+      "expected_x": 159.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 159,
+      "distance_px": 159,
+      "confidence": 0.6114,
+      "method": "template_edge",
+      "gap_box": [
+        159,
+        70,
+        203,
+        114
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            159,
+            70,
+            203,
+            114
+          ],
+          "gap_x": 159,
+          "confidence": 0.6113811135292053
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 3.3
+      },
+      "measured_ms": 3.27
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "image_only",
+      "expected_x": 216,
+      "error_px": 147,
+      "error_base_px": 147.0,
+      "correct": false,
+      "success": true,
+      "gap_x": 69,
+      "distance_px": 69,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        69,
+        53,
+        142,
+        122
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            69,
+            53,
+            142,
+            122
+          ],
+          "gap_x": 69,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 1.3
+      },
+      "measured_ms": 1.307
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 1.0,
+      "mode": "with_piece",
+      "expected_x": 212.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 212,
+      "distance_px": 212,
+      "confidence": 0.628,
+      "method": "template_edge",
+      "gap_box": [
+        212,
+        93,
+        270,
+        151
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            212,
+            93,
+            270,
+            151
+          ],
+          "gap_x": 212,
+          "confidence": 0.6280285120010376
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 5.2
+      },
+      "measured_ms": 5.218
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "image_only",
+      "expected_x": 324,
+      "error_px": 2,
+      "error_base_px": 1.3333333333333333,
+      "correct": true,
+      "success": true,
+      "gap_x": 322,
+      "distance_px": 322,
+      "confidence": 0.8,
+      "method": "contour",
+      "gap_box": [
+        322,
+        145,
+        400,
+        222
+      ],
+      "candidates": [
+        {
+          "method": "contour",
+          "gap_box": [
+            322,
+            145,
+            400,
+            222
+          ],
+          "gap_x": 322,
+          "confidence": 0.8
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 2.5
+      },
+      "measured_ms": 2.502
+    },
+    {
+      "kind": "whole_scene",
+      "seed": 9,
+      "scale": 1.5,
+      "mode": "with_piece",
+      "expected_x": 318.0,
+      "error_px": 0.0,
+      "error_base_px": 0.0,
+      "correct": true,
+      "success": true,
+      "gap_x": 318,
+      "distance_px": 318,
+      "confidence": 0.6063,
+      "method": "template_edge",
+      "gap_box": [
+        318,
+        139,
+        405,
+        226
+      ],
+      "candidates": [
+        {
+          "method": "template_edge",
+          "gap_box": [
+            318,
+            139,
+            405,
+            226
+          ],
+          "gap_x": 318,
+          "confidence": 0.6063438057899475
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 11.5
+      },
+      "measured_ms": 11.55
+    }
+  ]
+}

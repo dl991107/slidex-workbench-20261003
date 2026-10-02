@@ -1,0 +1,4 @@
+#!/bin/zsh
+set -eu
+resource_dir="$(cd -- "$(dirname -- "$0")/../Resources" && pwd)"
+exec "$resource_dir/runtime/bin/python3.12" -E -s -B "$resource_dir/server.py" "$@"

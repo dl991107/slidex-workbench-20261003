@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="workbench-token" content="__TOKEN__">
+  <title>Slidex 工作台</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">S</span><div><h1>Slidex 工作台</h1><p>本机 Chrome 页面执行工具</p></div></div>
+      <div class="header-actions"><span id="statusBadge" class="status-badge" data-state="checking"><span class="status-dot" aria-hidden="true"></span><span id="statusText">检查本地服务…</span></span><button id="shutdownButton" class="button button-quiet" type="button">关闭服务</button></div>
+    </header>
+
+    <main class="workspace">
+      <section class="panel control-panel" aria-labelledby="connectTitle">
+        <div class="panel-heading"><div><p class="eyebrow">连接</p><h2 id="connectTitle">连接现有 Chrome for Testing</h2></div><span class="local-tag">仅本机</span></div>
+        <div class="field-row"><label for="endpointInput">调试地址</label><div class="endpoint-control"><input id="endpointInput" type="url" value="http://127.0.0.1:9222" spellcheck="false" autocomplete="off"><button id="connectButton" class="button button-primary" type="button">连接 / 刷新页面</button></div><p class="field-help">填写启动时的本机远程调试地址。连接只在你点击按钮后发生。</p></div>
+        <div id="connectError" class="field-message" role="alert" hidden></div>
+        <details class="help-box"><summary>连接帮助</summary><p>现有 Testing 必须已启用远程调试；填写启动时的本机端口。未启用时无法热连接，需要你保存工作后自行重新启动。工作台不会重启浏览器。</p></details>
+        <div class="section-heading"><div><p class="eyebrow">目标页面</p><h3>选择一个标签页</h3></div><span id="targetCount" class="target-count">未连接</span></div>
+        <label class="sr-only" for="targetSelect">标签页目标</label><select id="targetSelect" disabled><option value="">连接后选择标签页</option></select>
+        <p class="support-note">使用 Slidex 内置阿里云 NC / 极验适配；其他页面可能不支持。</p>
+        <div class="run-card"><div><strong>执行一次适配任务</strong><p>由你点击后执行；运行时请不要同时操作该标签页。</p></div><button id="runButton" class="button button-primary" type="button" disabled>在选中页面执行一次</button><button id="cancelButton" class="button button-danger" type="button" hidden>停止本次执行</button></div>
+        <div id="operationStatus" class="operation-status" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="panel result-panel" aria-labelledby="resultTitle">
+        <div class="panel-heading"><div><p class="eyebrow">结果</p><h2 id="resultTitle">本次执行</h2></div><span class="result-state" id="resultState">待运行</span></div>
+        <div id="resultEmpty" class="empty-state"><span class="empty-glyph" aria-hidden="true">□</span><strong>还没有执行结果</strong><p>连接并选择标签页后，运行一次任务即可看到状态。</p></div>
+        <div id="resultContent" hidden><div class="metric-grid"><article class="metric"><span>状态</span><strong id="resultStatus">—</strong></article><article class="metric"><span>提供方</span><strong id="providerValue">—</strong></article><article class="metric"><span>耗时</span><strong id="elapsedValue">—</strong><small>毫秒</small></article></div><dl class="detail-list"><div><dt>结果说明</dt><dd id="messageValue">—</dd></div></dl><p id="resultNotice" class="result-notice"></p><button id="exportButton" class="button button-secondary export-button" type="button" disabled>导出 JSON</button></div>
+        <details class="api-box"><summary>API 接入</summary><p>本工作台可调用同一组本机接口；会话 token 在关闭服务后失效。</p><p>调用参数默认遮盖，点击后才显示。</p><div class="api-actions"><button id="showApiButton" class="button button-secondary" type="button">显示调用参数</button><button id="copyApiButton" class="button button-secondary" type="button" hidden>复制调用参数</button></div><pre id="apiParams" class="api-params" tabindex="0" hidden></pre><p id="apiCopyHint" class="api-hint" role="status"></p></details>
+      </section>
+    </main>
+    <footer><span>Slidex · 本地运行</span><span>不会自动连接、重启或操作其他页面</span></footer>
+  </div>
+</body>
+</html>

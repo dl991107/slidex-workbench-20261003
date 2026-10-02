@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "packaged launcher and empty state",
+    "real Slidex public image + visible candidate + matching JSON export",
+    "optional separate piece + stale result cleared",
+    "invalid file and damaged image rejected without stale results; reset",
+    "no horizontal overflow at 320 / 375 / 1360 px",
+    "clean shutdown; no JS errors or external requests"
+  ],
+  "public_sample_result": {
+    "success": true,
+    "gap_x": 236,
+    "gap_box": [
+      236,
+      250,
+      347,
+      356
+    ],
+    "confidence": 0.8,
+    "method": "contour",
+    "elapsed_ms": 18.57,
+    "image_width": 672,
+    "image_height": 390
+  }
+}

@@ -1,0 +1,10 @@
+# Unsupported reporting correction — 2026-10-03
+Prompt diagnosis: need evidence for the live failure; the installed provider registry is verified, but the user sent the shared message rather than the provider field. No live site cause is claimed.
+Scope: distinguish the existing pre-drag stop reasons. No new adapter, browser access, recognition algorithm, automatic retry, or live website verification.
+Files: browser_task.py, browser_bridge.py, web/app.js, web/index.html; existing boundary tests. Budget: 60 production lines and 85 test lines. Expected completion: 3–5 minutes.
+Acceptance: existing pre-drag branches produce distinct fixed messages through BrowserBridge; arbitrary upstream text never leaks; response fields unchanged; UI and export retain the specific message. Installed files must match verified sources.
+Boundary matrix before implementation: empty/invalid reason—has tests; duplicate and concurrency—has existing bridge tests; permissions/identity—has existing HTTP and bridge tests; cancellation/timeout—has existing tests; exception/data whitelist—has tests including new unknown reason masking; persistence—N/A, no new storage; network—N/A for new code, no new network requests. Installation backup and exact-file hash checks required.
+Evidence: newly added checks fail on dropped reasons and misleading UI title. These are local result-path regressions, not live website tests.
+
+Completion evidence: 53 worker/bridge checks and 2 local HTTP checks passed; Node UI logic and syntax checks passed. Independent source review found no blockers. Four installed files match the tested source byte-for-byte; rollback originals are preserved under work/installed-unsupported-backup. The installed app started with --no-open, served UI/status, and the check process shut down cleanly. No real browser connection/run occurred.
+Reduction review: retained the existing four-field response and export contract; no new public reason field, dependencies, endpoints, storage, retry path, or adapter. Only fixed internal reasons mapped to existing message. Live unsupported cause remains unverified until the user runs the updated workbench.

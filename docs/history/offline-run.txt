@@ -1,0 +1,183 @@
+2026-10-02 23:04:42.972 | INFO     | slidex.providers:register:317 - Registered provider: aliyun-nocaptcha (priority=10)
+2026-10-02 23:04:42.973 | INFO     | slidex.providers:register:317 - Registered provider: geetest (priority=20)
+2026-10-02 23:04:42.976 | INFO     | slidex._concurrency:__init__:37 - 滑块验证并发管理器初始化: 最大并发数=3, 等待超时=60秒
+{
+  "summary": {
+    "clean/image_only": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 0.616,
+      "p95_ms": 1.344
+    },
+    "clean/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 4.563,
+      "p95_ms": 10.632
+    },
+    "texture/image_only": {
+      "total": 30,
+      "correct": 22,
+      "reported_success_but_wrong": 8,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.297,
+      "p95_ms": 2.687
+    },
+    "texture/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.248,
+      "p95_ms": 11.917
+    },
+    "distractor/image_only": {
+      "total": 30,
+      "correct": 9,
+      "reported_success_but_wrong": 21,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.283,
+      "p95_ms": 2.516
+    },
+    "distractor/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.21,
+      "p95_ms": 11.691
+    },
+    "whole_scene/image_only": {
+      "total": 30,
+      "correct": 9,
+      "reported_success_but_wrong": 21,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 1.301,
+      "p95_ms": 2.602
+    },
+    "whole_scene/with_piece": {
+      "total": 30,
+      "correct": 30,
+      "reported_success_but_wrong": 0,
+      "refused": 0,
+      "exceptions": 0,
+      "median_ms": 5.189,
+      "p95_ms": 11.811
+    }
+  },
+  "boundary_cases": [
+    {
+      "case": "missing",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "missing_background_image",
+      "metadata": {
+        "elapsed_ms": 0.0
+      },
+      "measured_ms": 0.014
+    },
+    {
+      "case": "empty_bytes",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "image_decode_failed",
+      "metadata": {
+        "elapsed_ms": 1.5
+      },
+      "measured_ms": 1.535
+    },
+    {
+      "case": "corrupt_bytes",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "image_decode_failed",
+      "metadata": {
+        "elapsed_ms": 0.0
+      },
+      "measured_ms": 0.008
+    },
+    {
+      "case": "blank",
+      "expected": "reject",
+      "correct": true,
+      "success": false,
+      "gap_x": null,
+      "distance_px": null,
+      "confidence": 0.0,
+      "method": null,
+      "gap_box": null,
+      "candidates": [],
+      "error_code": "gap_not_found",
+      "metadata": {
+        "elapsed_ms": 1.9
+      },
+      "measured_ms": 1.9
+    },
+    {
+      "case": "line_without_gap",
+      "expected": "reject",
+      "correct": false,
+      "success": true,
+      "gap_x": 216,
+      "distance_px": 216,
+      "confidence": 0.45,
+      "method": "column_profile",
+      "gap_box": [
+        216,
+        28,
+        236,
+        171
+      ],
+      "candidates": [
+        {
+          "method": "column_profile",
+          "gap_box": [
+            216,
+            28,
+            236,
+            171
+          ],
+          "gap_x": 216,
+          "confidence": 0.45
+        }
+      ],
+      "error_code": null,
+      "metadata": {
+        "elapsed_ms": 0.7
+      },
+      "measured_ms": 0.749
+    }
+  ]
+}

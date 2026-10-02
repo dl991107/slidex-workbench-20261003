@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: <WORKSPACE>/work/slidex-main
+configfile: pyproject.toml
+plugins: mock-3.16.0, timeout-2.4.0, asyncio-1.4.0
+timeout: 30.0s
+timeout method: signal
+timeout func_only: False
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 43 items
+
+work/slidex-main/tests/test_slider_image.py ..................           [ 41%]
+work/slidex-main/tests/test_image_match.py ...............               [ 76%]
+work/slidex-main/tests/test_drag_pipeline.py .........                   [ 97%]
+work/slidex-main/tests/test_slider_sim.py s                              [100%]
+
+======================== 42 passed, 1 skipped in 28.58s ========================

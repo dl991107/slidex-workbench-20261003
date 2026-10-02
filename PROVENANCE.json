@@ -1,0 +1,17 @@
+{
+  "archive_date": "2026-10-03",
+  "slidex_version": "0.6.28",
+  "slidex_upstream": "https://github.com/dengyie/slidex",
+  "original_source_zip_sha256": "169dbd0fad1a1b6b7134ea3550a8e60d24dccfd84a3f50b5a17a416856b1b2ff",
+  "runtime_in_git": false,
+  "browser_profile_included": false,
+  "live_target_adapter_complete": false,
+  "dependencies": {
+    "Pillow": "12.3.0",
+    "opencv-python-headless": "5.0.0.93",
+    "numpy": "2.5.3",
+    "playwright": "1.63.0",
+    "psutil": "7.2.2",
+    "loguru": "0.7.3"
+  }
+}

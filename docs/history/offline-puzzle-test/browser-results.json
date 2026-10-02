@@ -1,0 +1,35 @@
+[
+  {
+    "scale": 0.75,
+    "initial_x": 6.0,
+    "expected_patch_x": 181.5,
+    "recognized_x": 182,
+    "method": "template_edge",
+    "wrong_distance_rejected": true,
+    "left": 182,
+    "moves": 12,
+    "pass": true
+  },
+  {
+    "scale": 1.0,
+    "initial_x": 8.0,
+    "expected_patch_x": 242.0,
+    "recognized_x": 242,
+    "method": "template_edge",
+    "wrong_distance_rejected": true,
+    "left": 242,
+    "moves": 12,
+    "pass": true
+  },
+  {
+    "scale": 1.5,
+    "initial_x": 12.0,
+    "expected_patch_x": 363.0,
+    "recognized_x": 363,
+    "method": "template_edge",
+    "wrong_distance_rejected": true,
+    "left": 363,
+    "moves": 12,
+    "pass": true
+  }
+]

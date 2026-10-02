@@ -1,0 +1,17 @@
+Slidex 公开样例实测（2026-10-02）
+
+输入：captcha-recognizer 作者公开的 example4.png 与 example8.png；未生成替代图片，未操作浏览器。
+程序：Slidex 0.6.28 的 SliderImageSolver；现有基础算法配置，未安装或启用可选 YOLO 后端。
+比较基准：同一作者公开的 predict4.png / predict8.png 参考框。这是作者模型的输出，不是网站验证结果或精确人工真值。
+只评价水平位置；这两张样例不足以估计总体识别率。
+
+样例 4：参考左缘 238 px；Slidex 输出 236 px；水平差 2 px；算法 contour；返回 success=True。
+https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_example/example4.png
+https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_predict/predict4.png
+
+样例 8：参考左缘 103 px；Slidex 输出 303 px；水平差 200 px；算法 column_profile；返回 success=True。
+https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_example/example8.png
+https://github.com/chenwei-zhao/captcha-recognizer/blob/main/images_predict/predict8.png
+
+结论：草叶单缺口样例水平差2像素；复杂样例错误定位到最右侧边缘，水平差200像素，且仍返回 success=True。当前基础配置不足以支持自动执行。
+未做：在线平台提交、滑块拖动、可选 YOLO 后端测试、实际网站通过率评估。

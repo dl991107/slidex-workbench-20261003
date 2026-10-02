@@ -1,0 +1,44 @@
+Slidex 工作台本机 API
+
+工作台由你双击启动。在“API 接入”中获取本次 base_url 与 token。
+所有 POST 均需要这些 HTTP 头：
+  Content-Type: application/json
+  Origin: 与 base_url 完全一致
+  X-Workbench-Token: 本次 token
+只在 127.0.0.1 监听，端口每次启动变化。token 不要硬编码到共享代码中。
+
+1. POST /api/browser/connect
+   输入：{"endpoint":"http://127.0.0.1:9222"}
+   输出：{"ok":true,"targets":[{"id":"不透明页面句柄","title":"页面标题","url":"https://example.com"}],"message":"..."}
+   重新连接会让之前的页面句柄失效。不导航、不新建标签页。
+
+2. POST /api/browser/run
+   输入：{"target":"上一步返回的 id","request_id":"新的标准 UUID 字符串"}
+   输出：{"ok":true,"result":{"status":"passed|failed|unknown|unsupported|cancelled","provider":"geetest|aliyun-nocaptcha|空字符串","elapsed_ms":123,"message":"..."}}
+   此调用会实际操作选定页面。调用者应先取得操作者对本次执行的授权。
+   每次只尝试一次；客户端读取超时建议至少 65 秒。
+   同一 request_id 与相同 target 重放，会返回缓存结果而不重复执行；同 id 配不同 target 返回 409。
+   缓存仅在本次服务内保留最近 64 个执行结果，跨重启或超出缓存范围不保证去重。
+   page_changed / stale_target 需要重新连接并选择页面。不能仅凭相同标题重新选页。
+   passed 只代表适配器反馈，仍需核对原页面，不代表完整登录完成。
+
+3. POST /api/browser/cancel
+   输入：{"request_id":"正在运行的 UUID"}
+   输出：{"ok":true,"message":"已请求停止本次任务。"}
+   返回只代表停止请求被接受；等待原 run 调用返回最终结果。其他 request_id 不会取消当前操作。
+   客户端断开 run 请求不会自动取消动作；要停止需显式调用 cancel。
+
+4. GET /api/status
+   返回本地服务版本、后端和 busy。此调用不连接浏览器。
+
+5. POST /api/shutdown
+   输入：{}
+   浏览器任务运行中返回 409；请先取消或等待结束。
+   只关闭本地工作台服务，不关闭用户浏览器。
+
+错误结构：{"ok":false,"error":{"code":"...","message":"可显示给用户的文字"}}
+400 输入无效；403 会话认证失败；409 正忙、页面变化或请求冲突；410 页面句柄失效；
+413 请求过大；502 调试服务不可用。浏览器接口请求体最多 16 KiB。
+unknown 结果可能已经发生部分动作，不要自动换 UUID 重试，应先看原页面。
+
+接口默认不会计划任务、循环执行、向公网开放，亦不返回 Cookie、验证正文或完整页面 URL。

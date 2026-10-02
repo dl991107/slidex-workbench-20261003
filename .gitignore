@@ -1,0 +1,16 @@
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+**/runtime/
+**/*-profile/
+**/Cookies
+**/Login Data
+**/Local State
+.env*
+*.log
+work/*-port.json
+work/current-workbench.json
+artifacts/
+.DS_Store
